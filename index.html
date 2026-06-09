@@ -1,0 +1,3267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leñera Carrasco | Leña de calidad en Montevideo y alrededores</title>
+  <meta name="description" content="Leñera Carrasco — más de 20 años entregando leña seca de calidad en Montevideo y alrededores. Astilla, rolo, acacia y más. Pedí directo por WhatsApp." />
+  <meta name="keywords" content="leña Montevideo, leña seca, astilla, rolo, acacia, leñera Uruguay, leña para estufa, leña para asado, entrega Montevideo" />
+  <link rel="canonical" href="https://leneracarrasco.com.uy/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Leñera Carrasco | Leña de calidad en Montevideo" />
+  <meta property="og:description" content="Más de 20 años entregando leña seca de calidad. Astilla, rolo, acacia y más. Pedí directo por WhatsApp." />
+  <meta property="og:url" content="https://leneracarrasco.com.uy/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Preload hero image (above the fold) -->
+  <link rel="preload" as="image" href="imgs/hero.webp" type="image/webp" />
+
+  <!-- Fonts: Gloock (display) + Karla (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:       '#F8F3EC',
+            'cream-mid': '#EDE5D8',
+            bosque:      '#1C1008',
+            'bosque-mid':'#2E1A0C',
+            'bosque-light':'#3D2410',
+            amber:       '#D4771A',
+            'amber-light':'#E8891C',
+            verde:       '#3D5236',
+          },
+          fontFamily: {
+            display: ['Gloock', 'Georgia', 'serif'],
+            body:    ['Karla', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ─── Global Reset & Base ────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Karla', system-ui, sans-serif;
+      background-color: #F8F3EC;
+      color: #1C1008;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    /* ─── CSS Variables ──────────────────────────────────────────── */
+    :root {
+      --cream:        #F8F3EC;
+      --cream-mid:    #EDE5D8;
+      --bosque:       #1C1008;
+      --bosque-mid:   #2E1A0C;
+      --bosque-light: #3D2410;
+      --amber:        #D4771A;
+      --amber-light:  #E8891C;
+      --verde:        #3D5236;
+      --shadow-warm:  0 4px 24px rgba(28, 16, 8, 0.18);
+      --shadow-amber: 0 4px 20px rgba(212, 119, 26, 0.3);
+    }
+
+    /* ─── Scroll Reveal ──────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+    .reveal-d5 { transition-delay: 0.40s; }
+    .reveal-d6 { transition-delay: 0.48s; }
+
+    /* ─── Noise texture overlay ──────────────────────────────────── */
+    .noise::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      opacity: 0.35;
+    }
+
+    /* ─── Navbar ─────────────────────────────────────────────────── */
+    #navbar {
+      background-color: var(--bosque);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      transition: box-shadow 0.3s ease;
+    }
+    #navbar.scrolled {
+      box-shadow: 0 2px 32px rgba(28, 16, 8, 0.5);
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    @media (min-width: 768px) {
+      .nav-inner { height: 72px; padding: 0 40px; }
+    }
+
+    /* Logo */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-family: 'Gloock', serif;
+      font-size: 1.15rem;
+      color: #F0E6D4;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      transition: color 0.2s ease;
+    }
+    .nav-logo:hover .nav-logo-text { color: var(--amber-light); }
+    .nav-logo-sub {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7A6450;
+      display: block;
+    }
+
+    /* Desktop nav links */
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 36px;
+    }
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+
+    .nav-link {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #9C8670;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      text-transform: uppercase;
+    }
+    .nav-link:hover { color: var(--amber); }
+
+    /* Nav right actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Cart button */
+    .cart-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      color: #9C8670;
+      cursor: pointer;
+      border: none;
+      background: none;
+      border-radius: 8px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .cart-btn:hover {
+      color: var(--amber);
+      background: rgba(212, 119, 26, 0.08);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: var(--amber);
+      color: var(--bosque);
+      font-family: 'Karla', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      min-width: 17px;
+      height: 17px;
+      border-radius: 20px;
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
+    }
+    .cart-badge.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: #9C8670;
+      border-radius: 8px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .hamburger:hover {
+      color: var(--amber);
+      background: rgba(212, 119, 26, 0.08);
+    }
+    @media (min-width: 768px) { .hamburger { display: none; } }
+
+    /* Mobile menu */
+    #mobile-menu {
+      background-color: var(--bosque);
+      border-top: 1px solid rgba(212, 119, 26, 0.15);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #mobile-menu.open { max-height: 420px; }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 14px 20px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #9C8670;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: color 0.2s ease, padding-left 0.2s ease;
+    }
+    .mobile-nav-link:hover {
+      color: var(--amber);
+      padding-left: 28px;
+    }
+
+    /* WhatsApp button — desktop nav */
+    .nav-wa-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.76rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 8px 15px;
+      background: var(--amber); color: #fff;
+      border-radius: 4px; text-decoration: none;
+      transition: background .18s, transform .18s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-wa-btn:hover { background: var(--amber-light); transform: translateY(-1px); }
+
+    /* WhatsApp button — mobile menu (destacado al final) */
+    .mobile-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin: 10px 16px 18px;
+      padding: 15px 20px;
+      background: var(--amber); color: #fff;
+      border-radius: 4px; text-decoration: none;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.88rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background .18s, transform .18s;
+      box-shadow: 0 4px 18px rgba(212,119,26,0.35);
+    }
+    .mobile-wa-btn:hover { background: var(--amber-light); transform: translateY(-1px); }
+
+    /* ─── Floating Cart ──────────────────────────────────────────── */
+    #float-cart {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 40;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--bosque);
+      border: 2px solid var(--amber);
+      color: #F0E6D4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(28, 16, 8, 0.4);
+      opacity: 0;
+      transform: translateY(12px) scale(0.9);
+      transition: opacity 0.3s ease,
+                  transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background 0.2s ease;
+      pointer-events: none;
+    }
+    #float-cart.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+    #float-cart:hover { background: var(--amber); }
+
+    #float-cart .fc-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: var(--amber-light);
+      color: var(--bosque);
+      font-family: 'Karla', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 20px;
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ─── Floating WhatsApp ──────────────────────────────────────── */
+    #float-wa {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 40;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #22C55E;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    #float-wa:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(34, 197, 94, 0.55);
+    }
+
+    /* Tooltip WhatsApp */
+    #float-wa::before {
+      content: '¿Necesitás ayuda?';
+      position: absolute;
+      left: 60px;
+      bottom: 50%;
+      transform: translateY(50%);
+      background: var(--bosque);
+      color: #F0E6D4;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    #float-wa:hover::before { opacity: 1; }
+
+    /* ─── Section placeholder (borrar cuando se construya cada sección) */
+    .section-placeholder {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.8rem;
+      color: #9C8670;
+      border-bottom: 1px dashed #EDE5D8;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 64px;
+      margin-bottom: -2px;
+    }
+    @media (min-width: 768px) { #hero { padding-top: 72px; } }
+
+    /* Atmospheric background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background-color: #0C0804;
+      background-image:
+        linear-gradient(180deg, rgba(12,8,4,0.70) 0%, rgba(12,8,4,0.55) 40%, rgba(12,8,4,0.82) 100%),
+        radial-gradient(ellipse 75% 58% at 28% 92%, rgba(172, 70, 12, 0.55) 0%, transparent 65%),
+        radial-gradient(ellipse 100% 65% at 50% 108%, rgba(88, 33, 8, 0.75) 0%, transparent 58%),
+        url(imgs/hero.webp);
+      background-size: cover, auto, auto, cover;
+      background-position: center, center, center, center top;
+    }
+
+    /* Animated ember glows */
+    .hero-glow-1 {
+      position: absolute;
+      width: 650px; height: 520px;
+      bottom: -100px; left: -70px;
+      background: radial-gradient(ellipse, rgba(190, 80, 14, 0.48) 0%, transparent 68%);
+      filter: blur(55px);
+      animation: glow-drift 5.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      width: 440px; height: 380px;
+      bottom: 40px; left: 8%;
+      background: radial-gradient(ellipse, rgba(225, 125, 28, 0.32) 0%, transparent 65%);
+      filter: blur(42px);
+      animation: glow-drift 5.5s ease-in-out infinite 2.75s;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    .hero-glow-3 {
+      position: absolute;
+      width: 300px; height: 250px;
+      bottom: 20%; right: 15%;
+      background: radial-gradient(ellipse, rgba(100, 38, 8, 0.25) 0%, transparent 65%);
+      filter: blur(60px);
+      animation: glow-drift 7s ease-in-out infinite 1.2s;
+      pointer-events: none;
+    }
+
+    .hero-grain {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 230px 230px;
+      opacity: 0.048;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    @keyframes glow-drift {
+      0%,100% { opacity: 1;    transform: scale(1)    translate(0,  0px); }
+      33%      { opacity: 0.72; transform: scale(0.94) translate(18px, -22px); }
+      66%      { opacity: 0.88; transform: scale(1.05) translate(-12px, 12px); }
+    }
+
+    /* Small spacer so content doesn't crowd the navbar on very tall screens */
+    .hero-spacer { min-height: 20px; }
+
+    /* Content area — fills remaining vertical space, centers content */
+    .hero-content-outer { position: relative; z-index: 2; width: 100%; flex: 1; display: flex; align-items: center; }
+
+    .hero-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    @media (min-width: 768px)  { .hero-content { padding: 0 40px 96px; } }
+    @media (min-width: 1280px) { .hero-content { padding: 0 80px 100px; } }
+
+    /* Eyebrow */
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(212, 119, 26, 0.88);
+      animation: hero-enter 0.72s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+    }
+    .eyebrow-line {
+      display: inline-block;
+      width: 34px; height: 1.5px;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+
+    /* H1 */
+    .hero-h1 {
+      font-family: 'Gloock', serif;
+      font-size: clamp(2.5rem, 5.8vw, 5.2rem);
+      line-height: 1.07;
+      letter-spacing: -0.025em;
+      color: #F0E6D4;
+      margin: 0 0 24px;
+      max-width: 740px;
+      animation: hero-enter 0.8s cubic-bezier(0.16,1,0.3,1) 0.45s both;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    /* Subheadline */
+    .hero-sub {
+      font-family: 'Karla', sans-serif;
+      font-size: clamp(1rem, 1.75vw, 1.16rem);
+      font-weight: 400;
+      line-height: 1.7;
+      color: rgba(240, 230, 212, 0.62);
+      margin: 0 0 38px;
+      max-width: 580px;
+      animation: hero-enter 0.8s cubic-bezier(0.16,1,0.3,1) 0.65s both;
+    }
+
+    /* CTAs */
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      animation: hero-enter 0.8s cubic-bezier(0.16,1,0.3,1) 0.82s both;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 32px;
+      background: var(--amber);
+      color: var(--bosque);
+      font-family: 'Karla', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 22px rgba(212,119,26,0.38);
+    }
+    .btn-hero-primary:hover {
+      background: var(--amber-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212,119,26,0.52);
+    }
+    .btn-hero-primary:active { transform: translateY(0); }
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border: 1.5px solid rgba(240, 230, 212, 0.28);
+      color: rgba(240, 230, 212, 0.82);
+      font-family: 'Karla', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: border-color 0.22s ease, color 0.22s ease, background 0.22s ease;
+    }
+    .btn-hero-secondary:hover {
+      border-color: rgba(240, 230, 212, 0.65);
+      color: #F0E6D4;
+      background: rgba(240, 230, 212, 0.08);
+    }
+
+    /* Trust line — replaces stat row */
+    .hero-trust {
+      font-family: 'Gloock', serif;
+      font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+      font-style: italic;
+      font-weight: 400;
+      color: rgba(240, 230, 212, 0.45);
+      margin: 0;
+      letter-spacing: 0.01em;
+      animation: hero-enter 0.8s cubic-bezier(0.16,1,0.3,1) 1.0s both;
+    }
+
+    /* Wave separator */
+    .hero-wave {
+      position: relative;
+      z-index: 2;
+      line-height: 0;
+      flex-shrink: 0;
+      height: 64px;
+      margin-top: -2px;
+      margin-bottom: -2px;
+    }
+    .hero-wave svg { width: 100%; height: 100%; display: block; }
+
+    /* Hero entrance animation */
+    @keyframes hero-enter {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .hero-ctas { flex-direction: column; align-items: stretch; }
+      .btn-hero-primary,
+      .btn-hero-secondary { justify-content: center; }
+    }
+    .hide-sm { display: none; }
+    @media (min-width: 640px) { .hide-sm { display: inline; } }
+
+    /* ════════════════════════════════════════════════════════════
+       UTILITIES
+    ════════════════════════════════════════════════════════════ */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 768px)  { .container { padding: 0 40px; } }
+    @media (min-width: 1280px) { .container { padding: 0 80px; } }
+    .sec { padding: 80px 0; }
+    @media (min-width: 768px)  { .sec { padding: 100px 0; } }
+
+    .sec-tag {
+      display: inline-block;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 12px;
+    }
+    .sec-title {
+      font-family: 'Gloock', serif;
+      font-size: clamp(1.9rem, 3.8vw, 3rem);
+      line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 8px;
+    }
+    .on-dark .sec-tag  { color: rgba(212,119,26,0.88); }
+    .on-dark .sec-title { color: #F0E6D4; }
+    .on-dark .sec-desc  { color: rgba(240,230,212,0.55); }
+
+    /* ════════════════════════════════════════════════════════════
+       PRODUCTOS
+    ════════════════════════════════════════════════════════════ */
+    #productos { background: var(--cream); }
+
+    .productos-intro {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Karla', sans-serif; font-size: 0.88rem;
+      color: rgba(28,16,8,0.5); margin: 4px 0 44px;
+    }
+    .productos-intro::before {
+      content: ''; width: 22px; height: 1.5px;
+      background: var(--amber); flex-shrink: 0;
+    }
+
+    /* Wave separator (shared) */
+    .wave-sep { line-height: 0; overflow: hidden; flex-shrink: 0; display: block; height: 52px; margin-top: -1px; margin-bottom: -2px; }
+    .wave-sep svg { display: block; width: 100%; height: 100%; }
+
+    /* Featured + standard grids */
+    .featured-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;
+    }
+    .standard-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    }
+    @media (max-width: 1024px) { .standard-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  {
+      .featured-grid { grid-template-columns: 1fr; }
+      .standard-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+
+    /* Card base */
+    .product-card {
+      background: var(--cream);
+      border-radius: 4px; overflow: hidden;
+      box-shadow: 0 2px 16px rgba(28,16,8,0.07);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(28,16,8,0.11);
+    }
+    .product-card.has-items {
+      box-shadow: 0 4px 22px rgba(212,119,26,0.28);
+      outline: 1.5px solid var(--amber);
+    }
+
+    /* Featured cards: dark variant — breaks the template look */
+    .product-card--featured {
+      background: var(--bosque);
+    }
+    .product-card--featured:hover {
+      box-shadow: 0 10px 32px rgba(212,119,26,0.20);
+    }
+    .product-card--featured.has-items {
+      outline-color: var(--amber-light);
+      box-shadow: 0 4px 22px rgba(212,119,26,0.32);
+    }
+    .product-card--featured .prod-body {
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .product-card--featured .prod-name  { color: #F0E6D4; }
+    .product-card--featured .prod-desc  { color: rgba(240,230,212,0.55); }
+    .product-card--featured .price-val  { color: #F0E6D4; }
+    .product-card--featured .price-unit { color: rgba(240,230,212,0.40); }
+    .product-card--featured .qty-ctrl   { background: rgba(255,255,255,0.10); }
+    .product-card--featured .qty-num    { color: #F0E6D4; }
+    .product-card--featured .qty-btn    { color: rgba(240,230,212,0.82); }
+    .product-card--featured.has-items .qty-num { color: var(--amber-light); }
+
+    /* Product image area */
+    .prod-img {
+      position: relative; overflow: hidden;
+    }
+    .product-card--featured .prod-img { height: 240px; }
+    .product-card--standard .prod-img { height: 156px; }
+    @media (max-width: 640px) {
+      .product-card--featured .prod-img { height: 200px; }
+      .product-card--standard .prod-img { height: 130px; }
+    }
+
+    /* Wood grain + warm glow overlays */
+    .prod-img::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: repeating-linear-gradient(
+        92deg, transparent 0, transparent 4px,
+        rgba(255,255,255,0.012) 4px, rgba(255,255,255,0.012) 5px
+      );
+    }
+    .prod-img::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: radial-gradient(
+        ellipse 60% 45% at 50% 88%, rgba(212,119,26,0.14) 0%, transparent 60%
+      );
+    }
+
+    /* Product images */
+    .prod-bg-1 { background-color: #3A1C0A; background-image: url(imgs/prod-astilla-roja.webp); background-size: cover; background-position: center; }
+    .prod-bg-2 { background-color: #2A1210; background-image: url(imgs/prod-astilla-calefactor.webp); background-size: cover; background-position: center; }
+    .prod-bg-3 { background-color: #2A1608; background-image: url(imgs/prod-rolo.webp); background-size: cover; background-position: center; }
+    .prod-bg-4 { background-color: #1C1A08; background-image: url(imgs/prod-acacia.webp); background-size: cover; background-position: center; }
+    .prod-bg-5 { background-color: #3A1808; background-image: url(imgs/prod-asado.webp); background-size: cover; background-position: center; }
+    .prod-bg-6 { background-color: #1C2808; background-image: url(imgs/prod-pinias.webp); background-size: cover; background-position: center; }
+
+    /* Badge */
+    .prod-badge {
+      position: absolute; top: 10px; left: 10px; z-index: 2;
+      background: var(--amber); color: var(--bosque);
+      font-family: 'Karla', sans-serif;
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 9px; border-radius: 2px;
+    }
+    .prod-badge--verde { background: var(--verde); color: #fff; }
+
+    /* Card body */
+    .prod-body { padding: 18px 18px 16px; }
+    .product-card--featured .prod-body { padding: 22px 22px 20px; }
+
+    .prod-name {
+      font-family: 'Gloock', serif; font-size: 1.05rem;
+      color: var(--bosque); margin: 0 0 6px; line-height: 1.22;
+    }
+    .product-card--featured .prod-name { font-size: 1.18rem; }
+
+    .prod-desc {
+      font-family: 'Karla', sans-serif; font-size: 0.8rem;
+      color: rgba(28,16,8,0.55); line-height: 1.5; margin: 0 0 16px;
+    }
+
+    /* Price + qty row */
+    .prod-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+    .price-val {
+      display: block; font-family: 'Gloock', serif;
+      font-size: 1.3rem; color: var(--bosque); line-height: 1;
+    }
+    .product-card--featured .price-val { font-size: 1.55rem; }
+    .price-unit {
+      display: block; font-family: 'Karla', sans-serif;
+      font-size: 0.68rem; color: rgba(28,16,8,0.48); margin-top: 2px;
+    }
+    /* Standard card price: slightly smaller than base */
+    .product-card--standard .price-val { font-size: 1.12rem; }
+
+    /* Consultar price treatment */
+    .prod-consultar { display: flex; flex-direction: column; gap: 4px; }
+    .prod-consultar-label {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.67rem; font-weight: 600; letter-spacing: 0.09em;
+      text-transform: uppercase; color: rgba(28,16,8,0.38);
+    }
+    .prod-consultar-wa {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'Karla', sans-serif; font-size: 0.78rem; font-weight: 700;
+      color: #22a860; text-decoration: none;
+      transition: color .15s ease;
+    }
+    .prod-consultar-wa:hover { color: #178048; }
+
+    /* Qty control */
+    .qty-ctrl {
+      display: flex; align-items: center;
+      background: var(--cream-mid); border-radius: 4px;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .qty-btn {
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.05rem; background: transparent; border: none;
+      color: var(--bosque); cursor: pointer;
+      transition: background .15s ease, color .15s ease;
+      user-select: none; -webkit-tap-highlight-color: transparent;
+    }
+    .qty-btn:hover { background: var(--amber); color: #fff; }
+    .qty-btn.inactive { opacity: 0.28; pointer-events: none; }
+    @media (max-width: 640px) { .qty-btn { width: 44px; height: 44px; } }
+
+    .qty-num {
+      min-width: 32px; text-align: center;
+      font-family: 'Karla', sans-serif; font-size: 0.95rem; font-weight: 600;
+      color: var(--bosque); transition: color .15s ease;
+    }
+    .product-card.has-items .qty-num { color: var(--amber); }
+
+    /* ════════════════════════════════════════════════════════════
+       CART PANEL
+    ════════════════════════════════════════════════════════════ */
+    .cart-overlay {
+      position: fixed; inset: 0; z-index: 60;
+      background: rgba(28,16,8,0.52);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    .cart-overlay.show { opacity: 1; pointer-events: all; }
+
+    #cart-panel {
+      position: fixed; top: 0; right: 0; bottom: 0; z-index: 61;
+      width: 380px; max-width: 100vw;
+      background: #fff;
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .38s cubic-bezier(.16,1,.3,1);
+      box-shadow: -8px 0 48px rgba(28,16,8,0.22);
+    }
+    #cart-panel.open { transform: translateX(0); }
+
+    .cp-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px; background: var(--bosque); flex-shrink: 0;
+    }
+    .cp-title { font-family: 'Gloock', serif; font-size: 1.08rem; color: #F0E6D4; }
+    .cp-close {
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.07); border: none; border-radius: 4px;
+      color: #9C8670; cursor: pointer;
+      transition: background .2s ease, color .2s ease;
+    }
+    .cp-close:hover { background: rgba(255,255,255,0.15); color: #F0E6D4; }
+
+    #cp-items { flex: 1; overflow-y: auto; padding: 12px 0; }
+
+    .cp-empty {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      padding: 60px 24px; text-align: center; color: rgba(28,16,8,0.35);
+    }
+    .cp-empty p {
+      font-family: 'Gloock', serif; font-size: 1rem; color: rgba(28,16,8,0.4); margin: 0;
+    }
+    .cp-empty span { font-family: 'Karla', sans-serif; font-size: 0.8rem; }
+
+    .cp-item {
+      display: flex; align-items: center; gap: 12px; padding: 13px 22px;
+      border-bottom: 1px solid rgba(28,16,8,0.06);
+      transition: background .15s ease;
+    }
+    .cp-item:hover { background: #faf7f3; }
+    .cp-item:last-child { border-bottom: none; }
+
+    .cp-item-info { flex: 1; min-width: 0; }
+    .cp-item-name {
+      font-family: 'Karla', sans-serif; font-size: 0.86rem; font-weight: 600;
+      color: var(--bosque); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .cp-item-unit {
+      font-family: 'Karla', sans-serif; font-size: 0.7rem; color: rgba(28,16,8,0.42); margin-top: 2px;
+    }
+
+    .cp-qty-ctrl {
+      display: flex; align-items: center;
+      background: var(--cream-mid); border-radius: 3px; overflow: hidden; flex-shrink: 0;
+    }
+    .cp-qty-btn {
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; background: transparent; border: none;
+      cursor: pointer; color: var(--bosque);
+      transition: background .15s ease, color .15s ease;
+    }
+    .cp-qty-btn:hover { background: var(--amber); color: #fff; }
+    .cp-qty-num {
+      min-width: 26px; text-align: center;
+      font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--bosque);
+    }
+
+    .cp-item-subtotal {
+      font-family: 'Gloock', serif; font-size: 0.92rem; color: var(--bosque);
+      text-align: right; min-width: 68px; flex-shrink: 0;
+    }
+
+    .cp-footer {
+      padding: 16px 22px 22px; border-top: 1px solid #EDE5D8; flex-shrink: 0;
+    }
+    .cp-total-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .cp-total-label {
+      font-family: 'Karla', sans-serif; font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em; color: rgba(28,16,8,0.45);
+    }
+    #cp-total-amount {
+      font-family: 'Gloock', serif; font-size: 1.5rem; color: var(--bosque); line-height: 1.1;
+    }
+    #cp-total-amount small {
+      font-family: 'Karla', sans-serif; font-size: 0.7rem;
+      color: rgba(28,16,8,0.4); font-style: normal; display: block;
+    }
+    .cp-note {
+      font-family: 'Karla', sans-serif; font-size: 0.7rem;
+      color: rgba(28,16,8,0.38); line-height: 1.5; margin: 8px 0 16px;
+    }
+    .btn-confirm-wa {
+      width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 15px; background: #25D366; color: #fff;
+      font-family: 'Karla', sans-serif; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.03em;
+      border: none; border-radius: 4px; cursor: pointer;
+      transition: background .2s ease, transform .18s ease, box-shadow .2s ease;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.32);
+    }
+    .btn-confirm-wa:hover { background: #1db954; transform: translateY(-1px); box-shadow: 0 6px 26px rgba(37,211,102,0.44); }
+    .btn-confirm-wa:disabled {
+      background: rgba(28,16,8,0.12); color: rgba(28,16,8,0.3);
+      box-shadow: none; cursor: not-allowed; transform: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       TOAST
+    ════════════════════════════════════════════════════════════ */
+    #toast {
+      position: fixed; bottom: 96px; left: 50%; z-index: 80;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--bosque); color: #F0E6D4;
+      font-family: 'Karla', sans-serif; font-size: 0.82rem; font-weight: 500;
+      padding: 9px 18px; border-radius: 20px;
+      border: 1px solid rgba(212,119,26,0.3);
+      white-space: nowrap; opacity: 0; pointer-events: none;
+      transition: opacity .25s ease, transform .28s cubic-bezier(.34,1.56,.64,1);
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ════════════════════════════════════════════════════════════
+       CONFIANZA
+    ════════════════════════════════════════════════════════════ */
+    #nosotros { background: var(--bosque); }
+
+    /* Wave separator utility (backgrounds only — dimensions in shared block above) */
+    .wave-sep--top     { background: var(--cream); }
+    .wave-sep--top-mid { background: var(--cream-mid); }
+    .wave-sep--dark    { background: var(--bosque); }
+
+    /* 4-pillar grid */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 44px 0 52px;
+    }
+    @media (max-width: 768px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px) { .trust-grid { grid-template-columns: 1fr; } }
+
+    .trust-item {
+      padding: 24px 28px;
+      border-right: 1px solid rgba(212,119,26,0.14);
+      transition: border-color .22s ease;
+    }
+    .trust-item:first-child { padding-left: 0; }
+    .trust-item:last-child  { border-right: none; }
+
+    @media (max-width: 768px) {
+      .trust-item {
+        padding: 20px 16px;
+        border-right: none;
+        border-bottom: 1px solid rgba(212,119,26,0.1);
+      }
+      .trust-item:nth-child(odd)  { border-right: 1px solid rgba(212,119,26,0.1); }
+      .trust-item:nth-last-child(-n+2) { border-bottom: none; }
+      .trust-item:first-child { padding-left: 16px; }
+    }
+
+    .trust-val {
+      font-family: 'Gloock', serif;
+      font-size: 2rem; line-height: 1;
+      color: var(--amber); margin-bottom: 12px;
+    }
+    .trust-val svg { color: var(--amber); }
+
+    .trust-title {
+      font-family: 'Gloock', serif;
+      font-size: 1.05rem; font-weight: 400;
+      color: #F0E6D4; margin: 0 0 8px; line-height: 1.3;
+    }
+    .trust-desc {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.88rem; line-height: 1.6;
+      color: rgba(240,230,212,0.65); margin: 0;
+    }
+
+    .trust-quote {
+      font-family: 'Gloock', serif; font-style: italic;
+      font-size: clamp(1.08rem, 1.9vw, 1.28rem);
+      color: rgba(240,230,212,0.68);
+      line-height: 1.75; max-width: 680px;
+      padding-left: 22px;
+      border-left: 2px solid rgba(212,119,26,0.45);
+      margin: 0;
+    }
+    .trust-quote strong {
+      color: #F0E6D4;
+      font-weight: 400;
+      font-style: italic;
+    }
+    .tq-hi {
+      color: var(--amber);
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       ZONAS (banda compacta)
+    ════════════════════════════════════════════════════════════ */
+    #zonas { background: var(--cream); }
+
+    .zonas-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .zonas-inner { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    .zonas-headline {
+      font-family: 'Gloock', serif;
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--bosque); margin: 8px 0 12px;
+    }
+    .zonas-sub {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.88rem; line-height: 1.6;
+      color: rgba(28,16,8,0.52); margin: 0;
+    }
+
+    .zone-chips {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
+    }
+    .zone-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px;
+      background: rgba(212,119,26,0.07);
+      border: 1px solid rgba(212,119,26,0.22);
+      border-radius: 20px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.8rem; font-weight: 500;
+      color: var(--bosque);
+      transition: background .18s ease, border-color .18s ease;
+    }
+    .zone-chip:hover {
+      background: rgba(212,119,26,0.14);
+      border-color: rgba(212,119,26,0.45);
+    }
+    .zone-chip-check {
+      width: 14px; height: 14px; flex-shrink: 0;
+      background: var(--amber); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .zone-chip-check svg { display: block; }
+
+    .zone-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--amber); text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: gap .2s ease, color .2s ease;
+    }
+    .zone-cta:hover { gap: 12px; color: var(--amber-light); }
+    .zone-cta svg { flex-shrink: 0; transition: transform .2s ease; }
+    .zone-cta:hover svg { transform: translateX(3px); }
+
+    /* ════════════════════════════════════════════════════════════
+       TESTIMONIOS
+    ════════════════════════════════════════════════════════════ */
+    #testimonios { background: var(--cream); }
+
+    .testi-marquee-wrap { padding-bottom: 72px; }
+
+    .testi-marquee {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      max-height: 680px;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, transparent, black 15%, black 82%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 82%, transparent);
+    }
+
+    .testi-col { flex: 0 0 300px; min-width: 0; }
+
+    .testi-track {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation: testi-scroll var(--dur, 15s) linear infinite;
+      will-change: transform;
+    }
+    .testi-track:hover { animation-play-state: paused; }
+
+    @keyframes testi-scroll {
+      to { transform: translateY(-50%); }
+    }
+
+    .testi-card {
+      background: #FDF9F2;
+      border: 1px solid rgba(212,119,26,0.14);
+      border-radius: 10px;
+      padding: 20px 20px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .testi-card::before {
+      content: '\201C';
+      font-family: 'Gloock', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: rgba(212,119,26,0.09);
+      position: absolute;
+      top: 0; right: 12px;
+      pointer-events: none;
+      user-select: none;
+    }
+    .testi-stars {
+      display: block;
+      color: var(--amber);
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+    .testi-quote {
+      font-family: 'Gloock', serif;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--bosque);
+      margin: 0 0 14px;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-top: 1px solid rgba(212,119,26,0.12);
+      padding-top: 12px;
+    }
+    .testi-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(212,119,26,0.14);
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Karla', sans-serif;
+      font-weight: 700;
+      font-size: 0.74rem;
+      color: var(--amber);
+    }
+    .testi-name {
+      font-family: 'Karla', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--bosque);
+      display: block;
+    }
+    .testi-location {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(28,16,8,0.42);
+      display: block;
+    }
+
+    @media (max-width: 767px) {
+      .testi-col:not(:first-child) { display: none; }
+      .testi-col { flex: 0 0 min(300px, 88vw); }
+    }
+    @media (min-width: 768px) and (max-width: 1059px) {
+      .testi-col:last-child { display: none; }
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       PODAS
+    ════════════════════════════════════════════════════════════ */
+    #servicios { background: var(--bosque); }
+
+    .podas-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 820px) {
+      .podas-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    .podas-tag {
+      display: inline-block;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(212,119,26,0.88); margin-bottom: 14px;
+    }
+    .podas-title {
+      font-family: 'Gloock', serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+      line-height: 1.1; letter-spacing: -0.02em;
+      color: #F0E6D4; margin: 0 0 12px;
+    }
+    .podas-sub {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.95rem; line-height: 1.65;
+      color: rgba(240,230,212,0.6);
+      margin: 0 0 28px; max-width: 420px;
+    }
+
+    .podas-list {
+      list-style: none; padding: 0; margin: 0 0 28px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .podas-list li {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.92rem; line-height: 1.5;
+      color: rgba(240,230,212,0.82);
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .podas-list li::before {
+      content: '';
+      flex-shrink: 0; margin-top: 6px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+
+    .podas-price {
+      display: inline-flex; align-items: baseline; gap: 4px;
+      background: rgba(212,119,26,0.12);
+      border: 1px solid rgba(212,119,26,0.28);
+      border-radius: 2px;
+      padding: 6px 14px 7px;
+      margin-bottom: 28px;
+    }
+    .podas-price-from {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(240,230,212,0.55);
+    }
+    .podas-price-val {
+      font-family: 'Gloock', serif;
+      font-size: 1.25rem;
+      color: var(--amber);
+    }
+
+    .podas-cta {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--amber);
+      text-decoration: none;
+      transition: gap .2s ease;
+    }
+    .podas-cta:hover { gap: 13px; }
+    .podas-cta svg { flex-shrink: 0; transition: transform .2s ease; }
+    .podas-cta:hover svg { transform: translateX(3px); }
+
+    /* Video container — portrait 9:16 */
+    .podas-video-wrap {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      background: var(--bosque-light);
+    }
+    .podas-video-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    /* Subtle warm vignette on video */
+    /* ════════════════════════════════════════════════════════════
+       UBICACIÓN / MAPA
+    ════════════════════════════════════════════════════════════ */
+    #ubicacion { display: block; line-height: 0; }
+    #ubicacion iframe {
+      width: 100%; height: 480px;
+      display: block; border: 0;
+    }
+    @media (max-width: 640px) { #ubicacion iframe { height: 360px; } }
+
+    .podas-video-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,119,26,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════════════ */
+    #site-footer {
+      background: var(--bosque);
+      border-top: 1px solid rgba(240,230,212,0.07);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr 1fr 1.3fr;
+      gap: 52px;
+      padding: 64px 0 56px;
+    }
+    @media (max-width: 960px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 36px; }
+    }
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .footer-logo-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Gloock', serif; font-size: 1.08rem;
+      color: #F0E6D4; text-decoration: none;
+      margin-bottom: 14px;
+    }
+    .footer-tagline {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.88rem; line-height: 1.68;
+      color: rgba(240,230,212,0.44);
+      max-width: 264px; margin: 0 0 22px;
+    }
+    .footer-wa-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.84rem; font-weight: 700;
+      padding: 9px 18px 10px;
+      background: rgba(212,119,26,0.12);
+      border: 1px solid rgba(212,119,26,0.28);
+      border-radius: 2px;
+      color: var(--amber); text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .footer-wa-btn:hover {
+      background: rgba(212,119,26,0.22);
+      border-color: rgba(212,119,26,0.48);
+    }
+
+    .footer-col-label {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.67rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(240,230,212,0.32);
+      display: block; margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .footer-links a {
+      font-family: 'Karla', sans-serif; font-size: 0.9rem;
+      color: rgba(240,230,212,0.6); text-decoration: none;
+      transition: color .18s;
+    }
+    .footer-links a:hover { color: var(--amber); }
+
+    .footer-contact-list {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .footer-contact-row {
+      display: flex; align-items: flex-start; gap: 11px;
+    }
+    .footer-contact-row svg { color: var(--amber); flex-shrink: 0; margin-top: 1px; }
+    .footer-contact-row span {
+      font-family: 'Karla', sans-serif; font-size: 0.88rem;
+      line-height: 1.52; color: rgba(240,230,212,0.6);
+    }
+    .footer-contact-row a {
+      color: rgba(240,230,212,0.6); text-decoration: none;
+    }
+    .footer-contact-row a:hover { color: var(--amber); }
+
+    /* Bottom bar */
+    .footer-bottom {
+      border-top: 1px solid rgba(240,230,212,0.07);
+      padding: 20px 0 24px;
+      display: flex; justify-content: space-between;
+      align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-family: 'Karla', sans-serif; font-size: 0.76rem;
+      color: rgba(240,230,212,0.22);
+    }
+    .footer-back-top {
+      font-family: 'Karla', sans-serif; font-size: 0.76rem;
+      color: rgba(240,230,212,0.28); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color .18s;
+    }
+    .footer-back-top:hover { color: var(--amber); }
+
+    /* ════════════════════════════════════════════════════════════
+       FAQ
+    ════════════════════════════════════════════════════════════ */
+    #faq { background: var(--cream); }
+
+    .faq-list {
+      max-width: 780px;
+      border-top: 1px solid rgba(212,119,26,0.14);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(212,119,26,0.14);
+    }
+
+    .faq-item summary {
+      font-family: 'Gloock', serif;
+      font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+      color: var(--bosque);
+      cursor: pointer;
+      padding: 22px 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::marker { display: none; }
+    .faq-item summary:hover { color: var(--amber); }
+
+    .faq-icon {
+      flex-shrink: 0; color: var(--amber);
+      transition: transform .35s cubic-bezier(.16,1,.3,1);
+    }
+    details[open] > summary .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.95rem; line-height: 1.75;
+      color: rgba(28,16,8,0.62);
+      padding: 0 40px 24px 0;
+    }
+    .faq-answer strong {
+      color: var(--bosque);
+      font-weight: 700;
+    }
+
+    /* FAQ 2-col layout (desktop) */
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .faq-layout { grid-template-columns: 1fr; gap: 36px; }
+      .faq-catalog { position: static; }
+    }
+
+    /* Sticky mini catalog */
+    .faq-catalog {
+      position: sticky;
+      top: 88px;
+      background: #FDF9F2;
+      border: 1px solid rgba(212,119,26,0.13);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .faq-catalog-head {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid rgba(212,119,26,0.1);
+    }
+    .faq-catalog-title {
+      font-family: 'Gloock', serif;
+      font-size: 1rem; margin: 0 0 3px;
+      color: var(--bosque);
+    }
+    .faq-catalog-sub {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.78rem;
+      color: rgba(28,16,8,0.45);
+      margin: 0;
+    }
+
+    /* Product rows */
+    .faq-prod-list { padding: 4px 0; }
+    .faq-prod-row {
+      display: flex; align-items: center; gap: 11px;
+      padding: 9px 16px;
+      border-bottom: 1px solid rgba(212,119,26,0.07);
+      transition: background .15s;
+    }
+    .faq-prod-row:last-child { border-bottom: none; }
+    .faq-prod-row:hover { background: rgba(212,119,26,0.04); }
+
+    .faq-prod-thumb {
+      width: 38px; height: 38px; flex-shrink: 0;
+      border-radius: 2px; overflow: hidden; position: relative;
+    }
+    /* reuse grain texture */
+    .faq-prod-thumb::before {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        93deg, transparent 0, transparent 4px,
+        rgba(255,255,255,0.013) 4px, rgba(255,255,255,0.013) 5px
+      );
+    }
+
+    .faq-prod-meta { flex: 1; min-width: 0; }
+    .faq-prod-name {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      color: var(--bosque); display: block;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .faq-prod-price {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.72rem; color: rgba(28,16,8,0.42);
+      display: block; margin-top: 1px;
+    }
+
+    /* Smaller qty controls for FAQ */
+    .qty-ctrl--sm { gap: 4px; }
+    .qty-ctrl--sm .qty-btn {
+      width: 26px; height: 26px;
+      font-size: 1rem; line-height: 26px;
+    }
+    .qty-ctrl--sm .qty-num {
+      min-width: 16px; font-size: 0.8rem;
+    }
+
+    /* FAQ catalog footer: total + confirm */
+    .faq-catalog-foot {
+      padding: 14px 16px 12px;
+      border-top: 1px solid rgba(212,119,26,0.1);
+    }
+    .faq-catalog-total {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .faq-total-label {
+      font-family: 'Karla', sans-serif;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: rgba(28,16,8,0.45);
+    }
+    .faq-total-amount {
+      font-family: 'Gloock', serif;
+      font-size: 1.15rem;
+      color: var(--bosque);
+    }
+    .faq-open-cart {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%;
+      font-family: 'Karla', sans-serif;
+      font-size: 0.84rem; font-weight: 700; letter-spacing: 0.02em;
+      padding: 11px 16px;
+      background: var(--amber); color: #fff;
+      border: none; border-radius: 2px;
+      cursor: pointer;
+      transition: background .18s, opacity .18s;
+    }
+    .faq-open-cart:hover { background: var(--amber-light); }
+    .faq-open-cart:disabled { opacity: 0.42; cursor: default; }
+
+    /* ════════════════════════════════════════════════════════════
+       GALERÍA — auto-scroll strip
+    ════════════════════════════════════════════════════════════ */
+    #galeria { background: var(--bosque); }
+
+    .gal-strip { overflow: hidden; padding-bottom: 72px; }
+
+    .gal-row-wrap {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    }
+    .gal-row-wrap + .gal-row-wrap { margin-top: 10px; }
+
+    .gal-track {
+      display: flex;
+      gap: 10px;
+      width: max-content;
+      will-change: transform;
+    }
+    .gal-track--fwd { animation: gal-fwd 38s linear infinite; }
+    .gal-track--rev { animation: gal-rev 44s linear infinite; }
+    .gal-strip:hover .gal-track { animation-play-state: paused; }
+
+    @keyframes gal-fwd {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes gal-rev {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+
+    .gal-item {
+      width: 280px; height: 280px;
+      flex-shrink: 0;
+      position: relative; overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .gal-bg {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform .65s cubic-bezier(.16,1,.3,1);
+    }
+    .gal-item:hover .gal-bg { transform: scale(1.07); }
+    .gal-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(28,16,8,0.38) 0%, transparent 55%);
+    }
+
+    /* Gallery images */
+    .gal-bg-1 { background-color: #2A1608; background-image: url(imgs/gal-bg-1.webp); background-size: cover; background-position: center; }
+    .gal-bg-2 { background-color: #3A1C0A; background-image: url(imgs/gal-bg-2.webp); background-size: cover; background-position: center; }
+    .gal-bg-3 { background-color: #1C1008; background-image: url(imgs/gal-bg-3.webp); background-size: cover; background-position: center; }
+    .gal-bg-4 { background-color: #2E1408; background-image: url(imgs/gal-bg-4.webp); background-size: cover; background-position: center; }
+    .gal-bg-5 { background-color: #1C1008; background-image: url(imgs/gal-bg-5.webp); background-size: cover; background-position: center; }
+    .gal-bg-6 { background-color: #3A1808; background-image: url(imgs/gal-bg-6.webp); background-size: cover; background-position: center; }
+    .gal-bg-7 { background-color: #281A0C; background-image: url(imgs/gal-bg-7.webp); background-size: cover; background-position: center; }
+    .gal-bg-8 { background-color: #201208; background-image: url(imgs/gal-bg-8.webp); background-size: cover; background-position: center; }
+
+    @media (max-width: 640px) {
+      .gal-item { width: 200px; height: 200px; }
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       RESPONSIVE — MOBILE OVERRIDES GLOBALES
+    ════════════════════════════════════════════════════════════ */
+
+    /* ─── Productos: más padding lateral en mobile ─────────── */
+    /* Los cards llenan el ancho completo y con 24px se percibe
+       muy apretado contra el borde. Se sube a 32px. */
+    @media (max-width: 640px) {
+      #productos > .container {
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+    }
+
+    /* Standard cards: columna única bajo 480px (las tarjetas son
+       muy angostas en 2-col y el control de qty no entra) */
+    @media (max-width: 480px) {
+      .standard-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .product-card--standard .prod-img { height: 180px; }
+    }
+
+    /* Reducir botones qty y padding en mobile para standard cards */
+    @media (max-width: 640px) {
+      .product-card--standard .prod-body { padding: 14px 14px 12px; }
+      .product-card--standard .prod-desc { margin-bottom: 10px; font-size: 0.78rem; }
+      .product-card--standard .qty-btn   { width: 34px; height: 34px; }
+      .product-card--standard .price-val { font-size: 1.05rem; }
+      .featured-grid { gap: 12px; }
+    }
+
+    /* ─── Hero: botones en móviles muy pequeños ─────────────── */
+    @media (max-width: 370px) {
+      .btn-hero-primary, .btn-hero-secondary {
+        font-size: 0.82rem;
+        padding: 12px 20px;
+      }
+      .hero-ctas { gap: 10px; }
+    }
+
+    /* ─── Podas: gap más compacto en tablets intermedios ────── */
+    @media (max-width: 1024px) and (min-width: 821px) {
+      .podas-inner { gap: 40px; }
+    }
+
+    /* ─── Zonas: chips se ordenan mejor en mobile ───────────── */
+    @media (max-width: 480px) {
+      .zone-chips { gap: 6px; }
+      .zone-chip  { padding: 6px 11px; font-size: 0.75rem; }
+    }
+
+
+    /* ─── FAQ catalog: sin sticky en mobile (posición static
+       ya está pero aseguramos que no tenga max-height) ──────── */
+    @media (max-width: 900px) {
+      .faq-catalog { max-height: none; }
+      .faq-answer  { padding-right: 0; }
+    }
+
+    /* ─── Footer: bottom bar apilado en móvil pequeño ───────── */
+    @media (max-width: 420px) {
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .footer-grid   { padding: 48px 0 40px; }
+    }
+
+    /* ─── Botones flotantes: más pequeños y mejor ubicados ──── */
+    @media (max-width: 640px) {
+      #float-cart { width: 48px; height: 48px; bottom: 18px; right: 16px; }
+      #float-wa   { width: 46px; height: 46px; bottom: 18px; left: 16px;  }
+      #float-wa::before { display: none; }
+    }
+
+    /* ─── Toast: no solapar botones flotantes en mobile ─────── */
+    @media (max-width: 640px) {
+      #toast { bottom: 80px; }
+    }
+
+    /* ─── Waves: solo en desktop — en mobile corte recto limpio ─── */
+    @media (max-width: 767px) {
+      .wave-sep,
+      .hero-wave { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Navegación principal">
+
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="#" class="nav-logo" aria-label="Leñera Carrasco — inicio">
+        <svg width="26" height="30" viewBox="0 0 26 30" fill="none" aria-hidden="true">
+          <path d="M13 1C13 1 7 9 7 16C7 19.866 9.686 23 13 23C16.314 23 19 19.866 19 16C19 12.5 16.8 10 15 8.5C15 8.5 15.8 12.5 13 15C13 15 11.2 9.5 13 1Z" fill="#D4771A"/>
+          <path d="M13 30C13 30 9 25.5 9 21.5C9 19.567 10.791 18 13 18C15.209 18 17 19.567 17 21.5C17 25.5 13 30 13 30Z" fill="#E8891C"/>
+        </svg>
+        <div>
+          <span class="nav-logo-text">Leñera Carrasco</span>
+          <span class="nav-logo-sub">Desde 1999</span>
+        </div>
+      </a>
+
+      <!-- Desktop nav links -->
+      <div class="nav-links" role="list">
+        <a href="#productos"    class="nav-link" role="listitem">Productos</a>
+        <a href="#nosotros"     class="nav-link" role="listitem">Nosotros</a>
+        <a href="#zonas"        class="nav-link" role="listitem">Zonas</a>
+        <a href="#servicios"    class="nav-link" role="listitem">Podas</a>
+        <a href="#faq"          class="nav-link" role="listitem">FAQ</a>
+        <a href="https://wa.me/59898380570" target="_blank" rel="noopener noreferrer" class="nav-wa-btn" role="listitem" aria-label="Escribir por WhatsApp">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Actions: cart + hamburger -->
+      <div class="nav-actions">
+
+        <button class="cart-btn" id="nav-cart-btn" onclick="toggleCartPanel()" aria-label="Abrir carrito">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-badge" id="nav-badge" aria-live="polite" aria-label="Items en el carrito">0</span>
+        </button>
+
+        <button class="hamburger" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="icon-ham" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg id="icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" style="display:none" aria-hidden="true">
+            <line x1="18" y1="6"  x2="6"  y2="18"/>
+            <line x1="6"  y1="6"  x2="18" y2="18"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" role="menu" aria-label="Menú móvil">
+      <div style="max-width:1280px; margin:0 auto;">
+        <a href="#productos"  onclick="closeMobileMenu()" class="mobile-nav-link" role="menuitem">Productos</a>
+        <a href="#nosotros"   onclick="closeMobileMenu()" class="mobile-nav-link" role="menuitem">Nosotros</a>
+        <a href="#zonas"      onclick="closeMobileMenu()" class="mobile-nav-link" role="menuitem">Zonas de entrega</a>
+        <a href="#servicios"  onclick="closeMobileMenu()" class="mobile-nav-link" role="menuitem">Podas</a>
+        <a href="#faq"        onclick="closeMobileMenu()" class="mobile-nav-link" role="menuitem">FAQ</a>
+        <a href="https://wa.me/59898380570" target="_blank" rel="noopener noreferrer"
+           onclick="closeMobileMenu()" class="mobile-wa-btn" role="menuitem" aria-label="Escribir por WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </nav>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       MAIN CONTENT (secciones se agregan progresivamente)
+  ════════════════════════════════════════════════════════════ -->
+  <main>
+
+    <!-- ════════════════════════════════════════════════════════════
+         HERO
+    ════════════════════════════════════════════════════════════ -->
+    <section id="hero" aria-label="Inicio — Leñera Carrasco">
+
+      <!-- Atmospheric background: fire light from lower-left -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-glow-3"></div>
+        <div class="hero-grain"></div>
+      </div>
+
+      <!-- Spacer: pushes content to lower portion of screen -->
+      <div class="hero-spacer" aria-hidden="true"></div>
+
+      <!-- Main content -->
+      <div class="hero-content-outer">
+        <div class="hero-content">
+
+          <!-- Eyebrow label -->
+          <div class="hero-eyebrow">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            Del monte a tu hogar &middot; Desde 2004
+          </div>
+
+          <!-- H1 — "calidad" in amber italic -->
+          <h1 class="hero-h1">
+            Leña seca de <em>calidad</em>,<br class="hide-sm">
+            directo a tu casa
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="hero-sub">
+            Más de 20 años calentando hogares en Montevideo y alrededores.
+            Astilla, rolo, acacia y más — seca, curada y lista para usar.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero-ctas">
+            <a href="#productos" class="btn-hero-primary">
+              Ver productos
+            </a>
+            <a href="https://wa.me/59898380570" target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Pedir por WhatsApp
+            </a>
+          </div>
+
+          <!-- Trust line -->
+          <p class="hero-trust">Empresa familiar — más de 20 años calentando hogares en Montevideo</p>
+
+        </div>
+      </div>
+
+      <!-- Organic wave separator → cream background -->
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,52 C110,34 260,70 440,46 C590,26 700,64 900,40 C1060,20 1240,58 1360,38 C1400,32 1426,30 1440,28 L1440,72 L0,72 Z" fill="#F8F3EC"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         PRODUCTOS + CARRITO
+    ════════════════════════════════════════════════════════════ -->
+    <section id="productos" aria-label="Catálogo de productos">
+      <div class="container sec">
+
+        <!-- Header -->
+        <div class="reveal">
+          <span class="sec-tag">Catálogo</span>
+          <h2 class="sec-title">Elegí tu leña</h2>
+          <p class="productos-intro">Seleccioná los productos, ajustá las cantidades y confirmá por WhatsApp. Toda la leña sale seca, curada y lista para usar desde el primer encendido.</p>
+        </div>
+
+        <!-- Featured products (2 large cards) -->
+        <div class="featured-grid">
+
+          <!-- Astilla Roja Premium -->
+          <article class="product-card product-card--featured reveal reveal-d1" id="card-astilla-roja">
+            <div class="prod-img prod-bg-1">
+              <span class="prod-badge">Más popular</span>
+            </div>
+            <div class="prod-body">
+              <h3 class="prod-name">Astilla Roja Premium</h3>
+              <p class="prod-desc">Ideal para estufas y salamandras. Chips de eucalipto rojo, alta potencia calórica y encendido rápido.</p>
+              <div class="prod-footer">
+                <div>
+                  <span class="price-val">$8.600</span>
+                  <span class="price-unit">por tonelada</span>
+                </div>
+                <div class="qty-ctrl">
+                  <button class="qty-btn minus inactive" onclick="changeQty('astilla-roja',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" id="qty-astilla-roja">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('astilla-roja',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Astilla Calefactor -->
+          <article class="product-card product-card--featured reveal reveal-d2" id="card-astilla-calef">
+            <div class="prod-img prod-bg-2">
+              <span class="prod-badge prod-badge--verde">Premium</span>
+            </div>
+            <div class="prod-body">
+              <h3 class="prod-name">Astilla Calefactor</h3>
+              <p class="prod-desc">Para calefacción central y calefones a leña. Chips compactados de eucalipto de alta densidad.</p>
+              <div class="prod-footer">
+                <div>
+                  <span class="price-val">$9.100</span>
+                  <span class="price-unit">por tonelada</span>
+                </div>
+                <div class="qty-ctrl">
+                  <button class="qty-btn minus inactive" onclick="changeQty('astilla-calef',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" id="qty-astilla-calef">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('astilla-calef',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Standard products (4 cards) -->
+        <div class="standard-grid">
+
+          <!-- Rolo Premium -->
+          <article class="product-card product-card--standard reveal reveal-d1" id="card-rolo">
+            <div class="prod-img prod-bg-3"></div>
+            <div class="prod-body">
+              <h3 class="prod-name">Rolo Premium</h3>
+              <p class="prod-desc">Leña en rolos, larga combustión y llama pareja.</p>
+              <div class="prod-footer">
+                <div>
+                  <span class="price-val">$8.600</span>
+                  <span class="price-unit">por ton.</span>
+                </div>
+                <div class="qty-ctrl">
+                  <button class="qty-btn minus inactive" onclick="changeQty('rolo',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" id="qty-rolo">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('rolo',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Acacia Negra -->
+          <article class="product-card product-card--standard reveal reveal-d2" id="card-acacia">
+            <div class="prod-img prod-bg-4">
+              <span class="prod-badge">Económica</span>
+            </div>
+            <div class="prod-body">
+              <h3 class="prod-name">Acacia Negra</h3>
+              <p class="prod-desc">Alta densidad energética. Quema lenta y duradera.</p>
+              <div class="prod-footer">
+                <div>
+                  <span class="price-val">$7.100</span>
+                  <span class="price-unit">por ton.</span>
+                </div>
+                <div class="qty-ctrl">
+                  <button class="qty-btn minus inactive" onclick="changeQty('acacia',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" id="qty-acacia">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('acacia',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Leña para Asado -->
+          <article class="product-card product-card--standard reveal reveal-d3" id="card-asado">
+            <div class="prod-img prod-bg-5"></div>
+            <div class="prod-body">
+              <h3 class="prod-name">Leña para Asado</h3>
+              <p class="prod-desc">Mix premium para parrilla. Sin resinas, sabor natural.</p>
+              <div class="prod-footer">
+                <div class="prod-consultar">
+                  <span class="prod-consultar-label">Precio según cantidad</span>
+                  <a href="https://wa.me/59898380570" target="_blank" rel="noopener noreferrer" class="prod-consultar-wa">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Cotizá por WhatsApp
+                  </a>
+                </div>
+                <div class="qty-ctrl">
+                  <button class="qty-btn minus inactive" onclick="changeQty('asado',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" id="qty-asado">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('asado',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Piñas & Iniciadores -->
+          <article class="product-card product-card--standard reveal reveal-d4" id="card-pinias">
+            <div class="prod-img prod-bg-6"></div>
+            <div class="prod-body">
+              <h3 class="prod-name">Piñas &amp; Iniciadores</h3>
+              <p class="prod-desc">Piñas naturales y virutas. Encendido fácil y rápido.</p>
+              <div class="prod-footer">
+                <div class="prod-consultar">
+                  <span class="prod-consultar-label">Precio según cantidad</span>
+                  <a href="https://wa.me/59898380570" target="_blank" rel="noopener noreferrer" class="prod-consultar-wa">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Cotizá por WhatsApp
+                  </a>
+                </div>
+                <div class="qty-ctrl">
+                  <button class="qty-btn minus inactive" onclick="changeQty('pinias',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" id="qty-pinias">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('pinias',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         CONFIANZA
+    ════════════════════════════════════════════════════════════ -->
+    <section id="nosotros" aria-label="Por qué elegirnos">
+
+      <!-- Wave: cream (productos) → bosque -->
+      <div class="wave-sep wave-sep--top" aria-hidden="true">
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1440" height="56" fill="#F8F3EC"/>
+          <path d="M0,32 C220,8 440,50 660,28 C880,8 1100,50 1320,24 L1440,28 L1440,56 L0,56 Z" fill="#1C1008"/>
+        </svg>
+      </div>
+
+      <div class="container" style="padding-top:52px; padding-bottom:68px;">
+
+        <span class="sec-tag on-dark reveal">Por qué elegirnos</span>
+
+        <!-- 4 pillars -->
+        <div class="trust-grid">
+
+          <div class="trust-item reveal reveal-d1">
+            <div class="trust-val">+20</div>
+            <h3 class="trust-title">Años de experiencia</h3>
+            <p class="trust-desc">Más de dos décadas en el rubro, sirviendo a familias de Montevideo y alrededores.</p>
+          </div>
+
+          <div class="trust-item reveal reveal-d2">
+            <div class="trust-val">100%</div>
+            <h3 class="trust-title">Leña seca y curada</h3>
+            <p class="trust-desc">Garantizamos leña lista para usar desde el primer encendido, sin humedad.</p>
+          </div>
+
+          <div class="trust-item reveal reveal-d3">
+            <div class="trust-val">
+              <svg width="34" height="22" viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="2" y1="11" x2="30" y2="11"/>
+                <polyline points="22,3 32,11 22,19"/>
+              </svg>
+            </div>
+            <h3 class="trust-title">Entrega rápida</h3>
+            <p class="trust-desc">Coordinamos la entrega a domicilio en el menor tiempo posible.</p>
+          </div>
+
+          <div class="trust-item reveal reveal-d4">
+            <div class="trust-val">24hs</div>
+            <h3 class="trust-title">Atención por WhatsApp</h3>
+            <p class="trust-desc">Respondemos consultas y pedidos todos los días, a toda hora.</p>
+          </div>
+
+        </div>
+
+        <!-- Mini párrafo empresa familiar -->
+        <blockquote class="trust-quote reveal">
+          Somos una <strong>empresa familiar</strong> que arrancó con una camioneta y un compromiso simple: llevar <strong>leña seca de calidad</strong>, <strong>a tiempo y al precio justo</strong>. Hoy, <span class="tq-hi">más de 20 años después</span>, seguimos siendo exactamente eso.
+        </blockquote>
+
+      </div>
+
+      <!-- Wave: bosque → cream (zonas) -->
+      <div class="wave-sep wave-sep--dark" aria-hidden="true">
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1440" height="56" fill="#1C1008"/>
+          <path d="M0,28 C220,52 440,8 660,30 C880,52 1100,8 1320,32 L1440,28 L1440,56 L0,56 Z" fill="#F8F3EC"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         ZONAS DE ENTREGA
+    ════════════════════════════════════════════════════════════ -->
+    <section id="zonas" aria-label="Zonas de entrega">
+      <div class="container" style="padding-top:56px; padding-bottom:64px;">
+        <div class="zonas-inner">
+
+          <!-- Left: copy -->
+          <div class="reveal">
+            <span class="sec-tag">Cobertura</span>
+            <h2 class="zonas-headline">Entregamos donde estás</h2>
+            <p class="zonas-sub">Llegamos a Montevideo y toda el área metropolitana. Coordinamos día y horario de entrega a tu domicilio.</p>
+          </div>
+
+          <!-- Right: chips + CTA -->
+          <div class="reveal reveal-d2">
+            <div class="zone-chips">
+
+              <span class="zone-chip">
+                <span class="zone-chip-check" aria-hidden="true">
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><polyline points="1,3 3,5 7,1" stroke="#1C1008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Montevideo
+              </span>
+
+              <span class="zone-chip">
+                <span class="zone-chip-check" aria-hidden="true">
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><polyline points="1,3 3,5 7,1" stroke="#1C1008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Carrasco
+              </span>
+
+              <span class="zone-chip">
+                <span class="zone-chip-check" aria-hidden="true">
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><polyline points="1,3 3,5 7,1" stroke="#1C1008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Ciudad de la Costa
+              </span>
+
+              <span class="zone-chip">
+                <span class="zone-chip-check" aria-hidden="true">
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><polyline points="1,3 3,5 7,1" stroke="#1C1008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Canelones
+              </span>
+
+              <span class="zone-chip">
+                <span class="zone-chip-check" aria-hidden="true">
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><polyline points="1,3 3,5 7,1" stroke="#1C1008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Las Piedras
+              </span>
+
+              <span class="zone-chip">
+                <span class="zone-chip-check" aria-hidden="true">
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><polyline points="1,3 3,5 7,1" stroke="#1C1008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Pando
+              </span>
+
+              <span class="zone-chip">
+                <span class="zone-chip-check" aria-hidden="true">
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><polyline points="1,3 3,5 7,1" stroke="#1C1008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Atlántida
+              </span>
+
+              <span class="zone-chip">
+                <span class="zone-chip-check" aria-hidden="true">
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><polyline points="1,3 3,5 7,1" stroke="#1C1008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                San José
+              </span>
+
+            </div>
+
+            <a href="https://wa.me/59898380570?text=Hola%20Le%C3%B1era%20Carrasco%2C%20quiero%20consultar%20si%20hacen%20entregas%20en%20mi%20zona." target="_blank" rel="noopener noreferrer" class="zone-cta">
+              ¿Tu zona no aparece? Consultanos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12,5 19,12 12,19"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Wave: cream → bosque (galería) -->
+      <div class="wave-sep wave-sep--top" aria-hidden="true">
+        <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1440" height="52" fill="#F8F3EC"/>
+          <path d="M0,26 C240,46 480,8 720,26 C960,46 1200,8 1440,26 L1440,52 L0,52 Z" fill="#1C1008"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria">
+
+      <!-- Header -->
+      <div class="container" style="padding-top:72px; padding-bottom:40px; text-align:center;">
+        <div class="reveal">
+          <span class="sec-tag on-dark">Galería</span>
+        </div>
+        <h2 class="sec-title reveal reveal-d1" style="color:#F0E6D4; margin:0 auto;">
+          De nuestro trabajo
+        </h2>
+        <p class="reveal reveal-d2" style="font-family:'Karla',sans-serif; color:rgba(240,230,212,0.62); font-size:0.95rem; max-width:420px; margin:8px auto 0; line-height:1.6;">
+          Depósito propio, proceso artesanal y entrega cuidada — así es Leñera Carrasco.
+        </p>
+      </div>
+
+      <!-- Auto-scroll strip -->
+      <div class="gal-strip">
+
+        <!-- Fila 1 → izquierda -->
+        <div class="gal-row-wrap">
+          <div class="gal-track gal-track--fwd" aria-hidden="true">
+            <div class="gal-item"><div class="gal-bg gal-bg-1"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-2"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-3"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-4"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-5"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-6"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-7"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-8"></div></div>
+            <!-- duplicado para loop continuo -->
+            <div class="gal-item"><div class="gal-bg gal-bg-1"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-2"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-3"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-4"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-5"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-6"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-7"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-8"></div></div>
+          </div>
+        </div>
+
+        <!-- Fila 2 → derecha (inverso) -->
+        <div class="gal-row-wrap">
+          <div class="gal-track gal-track--rev" aria-hidden="true">
+            <div class="gal-item"><div class="gal-bg gal-bg-5"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-6"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-7"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-8"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-1"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-2"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-3"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-4"></div></div>
+            <!-- duplicado para loop continuo -->
+            <div class="gal-item"><div class="gal-bg gal-bg-5"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-6"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-7"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-8"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-1"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-2"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-3"></div></div>
+            <div class="gal-item"><div class="gal-bg gal-bg-4"></div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Wave: bosque → cream (Testimonios) -->
+      <div class="wave-sep wave-sep--dark" aria-hidden="true">
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1440" height="56" fill="#1C1008"/>
+          <path d="M0,36 C200,12 400,50 640,22 C820,8 1000,46 1200,26 C1320,14 1400,40 1440,30 L1440,56 L0,56 Z" fill="#F8F3EC"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         TESTIMONIOS
+    ════════════════════════════════════════════════════════════ -->
+    <section id="testimonios">
+
+      <!-- Header -->
+      <div class="container" style="padding-top:80px; padding-bottom:44px;">
+        <span class="sec-tag reveal">Testimonios</span>
+        <h2 class="sec-title reveal reveal-d1" style="max-width:580px;">
+          Lo que dicen nuestros clientes
+        </h2>
+        <p class="reveal reveal-d2" style="font-family:'Karla',sans-serif; color:rgba(28,16,8,0.5); font-size:0.95rem; max-width:420px; margin-top:8px; line-height:1.6;">
+          Más de 20 años llevando calor a los hogares uruguayos.
+        </p>
+      </div>
+
+      <!-- Infinite scroll columns -->
+      <div class="testi-marquee-wrap">
+        <div class="testi-marquee">
+
+          <!-- ── Columna 1 · 15s ── -->
+          <div class="testi-col" style="--dur:15s">
+            <div class="testi-track">
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Llevaba años con otro proveedor hasta que una amiga me convenció de probar. Qué diferencia. La leña llega seca de verdad, enciende en el primer intento y sin nada de humo."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">MG</div>
+                  <div><span class="testi-name">María González</span><span class="testi-location">Pocitos, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Para el asado uso exclusivamente su leña. La brasa queda perfecta y dura todo el asado sin recargar. Tan buena que mi cuñado también les compra ahora."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">CR</div>
+                  <div><span class="testi-name">Carlos Rodríguez</span><span class="testi-location">Ciudad de la Costa, Canelones</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Encender la chimenea en invierno es el ritual de nuestra casa. Desde que usamos Leñera Carrasco mejoró mucho: la leña enciende fácil, no humea y el calor dura horas."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">LF</div>
+                  <div><span class="testi-name">Laura Fernández</span><span class="testi-location">Carrasco, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Hace más de diez años que les compro. El precio es justo y la leña siempre está en condiciones. Pedís por WhatsApp, te confirman y en un par de días está en la puerta."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">JC</div>
+                  <div><span class="testi-name">Jorge Castro</span><span class="testi-location">Pando, Canelones</span></div>
+                </div>
+              </div>
+              <!-- duplicado para loop continuo -->
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Llevaba años con otro proveedor hasta que una amiga me convenció de probar. Qué diferencia. La leña llega seca de verdad, enciende en el primer intento y sin nada de humo."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">MG</div>
+                  <div><span class="testi-name">María González</span><span class="testi-location">Pocitos, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Para el asado uso exclusivamente su leña. La brasa queda perfecta y dura todo el asado sin recargar. Tan buena que mi cuñado también les compra ahora."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">CR</div>
+                  <div><span class="testi-name">Carlos Rodríguez</span><span class="testi-location">Ciudad de la Costa, Canelones</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Encender la chimenea en invierno es el ritual de nuestra casa. Desde que usamos Leñera Carrasco mejoró mucho: la leña enciende fácil, no humea y el calor dura horas."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">LF</div>
+                  <div><span class="testi-name">Laura Fernández</span><span class="testi-location">Carrasco, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Hace más de diez años que les compro. El precio es justo y la leña siempre está en condiciones. Pedís por WhatsApp, te confirman y en un par de días está en la puerta."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">JC</div>
+                  <div><span class="testi-name">Jorge Castro</span><span class="testi-location">Pando, Canelones</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Columna 2 · 19s ── -->
+          <div class="testi-col" style="--dur:19s">
+            <div class="testi-track">
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Me quedé sin leña en pleno julio y necesitaba urgente. Mandé mensaje a las diez de la mañana y al día siguiente ya tenía el reparto confirmado. En plena temporada, eso no es fácil."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">AM</div>
+                  <div><span class="testi-name">Ana Martínez</span><span class="testi-location">Atlántida, Canelones</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Antes de quedarme con Leñera Carrasco comparé varios proveedores. La diferencia está en el secado: los otros mandan leña verde que humea y no rinde. Acá llegó lista para usar desde el primer día."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">DS</div>
+                  <div><span class="testi-name">Diego Sosa</span><span class="testi-location">Malvín, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"En casa hacemos asado todos los domingos. La leña para asado da una brasa pareja, sin chispas, que aguanta todo el asado. Mi marido dice que es la mejor que usó en años."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">PB</div>
+                  <div><span class="testi-name">Patricia Benítez</span><span class="testi-location">Las Piedras, Canelones</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Lo que más valoro es que cumplen. Si dicen que llegan el miércoles, el miércoles están. El WhatsApp responde rápido y el pedido siempre como se acordó. Eso hoy en día vale mucho."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">RD</div>
+                  <div><span class="testi-name">Roberto Da Silva</span><span class="testi-location">Paso de la Arena, Montevideo</span></div>
+                </div>
+              </div>
+              <!-- duplicado para loop continuo -->
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Me quedé sin leña en pleno julio y necesitaba urgente. Mandé mensaje a las diez de la mañana y al día siguiente ya tenía el reparto confirmado. En plena temporada, eso no es fácil."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">AM</div>
+                  <div><span class="testi-name">Ana Martínez</span><span class="testi-location">Atlántida, Canelones</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Antes de quedarme con Leñera Carrasco comparé varios proveedores. La diferencia está en el secado: los otros mandan leña verde que humea y no rinde. Acá llegó lista para usar desde el primer día."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">DS</div>
+                  <div><span class="testi-name">Diego Sosa</span><span class="testi-location">Malvín, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"En casa hacemos asado todos los domingos. La leña para asado da una brasa pareja, sin chispas, que aguanta todo el asado. Mi marido dice que es la mejor que usó en años."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">PB</div>
+                  <div><span class="testi-name">Patricia Benítez</span><span class="testi-location">Las Piedras, Canelones</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Lo que más valoro es que cumplen. Si dicen que llegan el miércoles, el miércoles están. El WhatsApp responde rápido y el pedido siempre como se acordó. Eso hoy en día vale mucho."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">RD</div>
+                  <div><span class="testi-name">Roberto Da Silva</span><span class="testi-location">Paso de la Arena, Montevideo</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Columna 3 · 17s ── -->
+          <div class="testi-col" style="--dur:17s">
+            <div class="testi-track">
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Vivo en un apartamento así que pido en cantidades chicas y seguido. Nunca tuve problema, siempre me atienden bien y la leña rinde exactamente lo que esperaba."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">SH</div>
+                  <div><span class="testi-name">Silvia Herrera</span><span class="testi-location">Parque Rodó, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Tenemos un salón de eventos y les compramos en cantidad para asados. El precio por tonelada es muy conveniente y la calidad es siempre la misma. Para un negocio eso importa y mucho."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">ML</div>
+                  <div><span class="testi-name">Martín López</span><span class="testi-location">Canelones ciudad</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Hay algo en encender el fuego con buena leña que cambia el ambiente de la casa. Desde que usamos Leñera Carrasco, el invierno se siente diferente acá. Coordinar por WhatsApp es facilísimo."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">VG</div>
+                  <div><span class="testi-name">Verónica Giménez</span><span class="testi-location">Punta Carretas, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Primera vez que pedía y no sabía qué esperar. Me explicaron todo por WhatsApp, las variedades y las cantidades, y llegó exactamente lo que pedí. Volví a los dos meses."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">FA</div>
+                  <div><span class="testi-name">Fernando Acosta</span><span class="testi-location">La Blanqueada, Montevideo</span></div>
+                </div>
+              </div>
+              <!-- duplicado para loop continuo -->
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Vivo en un apartamento así que pido en cantidades chicas y seguido. Nunca tuve problema, siempre me atienden bien y la leña rinde exactamente lo que esperaba."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">SH</div>
+                  <div><span class="testi-name">Silvia Herrera</span><span class="testi-location">Parque Rodó, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Tenemos un salón de eventos y les compramos en cantidad para asados. El precio por tonelada es muy conveniente y la calidad es siempre la misma. Para un negocio eso importa y mucho."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">ML</div>
+                  <div><span class="testi-name">Martín López</span><span class="testi-location">Canelones ciudad</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Hay algo en encender el fuego con buena leña que cambia el ambiente de la casa. Desde que usamos Leñera Carrasco, el invierno se siente diferente acá. Coordinar por WhatsApp es facilísimo."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">VG</div>
+                  <div><span class="testi-name">Verónica Giménez</span><span class="testi-location">Punta Carretas, Montevideo</span></div>
+                </div>
+              </div>
+              <div class="testi-card">
+                <span class="testi-stars" aria-hidden="true">★★★★★</span>
+                <p class="testi-quote">"Primera vez que pedía y no sabía qué esperar. Me explicaron todo por WhatsApp, las variedades y las cantidades, y llegó exactamente lo que pedí. Volví a los dos meses."</p>
+                <div class="testi-author">
+                  <div class="testi-avatar">FA</div>
+                  <div><span class="testi-name">Fernando Acosta</span><span class="testi-location">La Blanqueada, Montevideo</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Wave: cream → bosque (Podas) -->
+      <div class="wave-sep wave-sep--top" aria-hidden="true">
+        <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1440" height="52" fill="#F8F3EC"/>
+          <path d="M0,28 C200,46 420,10 660,30 C900,46 1120,10 1320,28 C1380,32 1420,24 1440,26 L1440,52 L0,52 Z" fill="#1C1008"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         PODAS
+    ════════════════════════════════════════════════════════════ -->
+    <section id="servicios" aria-label="Servicio de podas y talas">
+      <div class="container" style="padding-top:80px; padding-bottom:88px;">
+        <div class="podas-inner">
+
+          <!-- Copy -->
+          <div class="reveal">
+            <span class="podas-tag">Servicio adicional</span>
+            <h2 class="podas-title">Podamos. Talamos.<br>Nos llevamos todo.</h2>
+            <p class="podas-sub">Además de leña, ofrecemos servicio profesional de podas y talas a domicilio. Un solo llamado y tu patio queda limpio y seguro.</p>
+
+            <ul class="podas-list">
+              <li>Reducción de copas y ramas peligrosas sobre techos o cables</li>
+              <li>Tala completa con técnicas de trabajo en altura</li>
+              <li>Podas estéticas, correctivas y de mantenimiento</li>
+              <li>Retiro total del material — sin que te quede nada por resolver</li>
+            </ul>
+
+            <div class="podas-price" style="margin-bottom:28px;">
+              <span class="podas-price-from">Desde</span>
+              <span class="podas-price-val">$16.000</span>
+            </div>
+
+            <a href="https://wa.me/59898380570?text=Hola%20Le%C3%B1era%20Carrasco%2C%20quiero%20pedir%20presupuesto%20para%20el%20servicio%20de%20podas%2Ftalas." target="_blank" rel="noopener noreferrer" class="podas-cta">
+              Pedir presupuesto por WhatsApp
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12,5 19,12 12,19"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Video -->
+          <div class="podas-video-wrap reveal reveal-d2">
+            <video autoplay muted loop playsinline>
+              <source src="video_servicio_de_podas.mp4" type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Wave: bosque → cream (FAQ) -->
+      <div class="wave-sep wave-sep--dark" aria-hidden="true">
+        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1440" height="56" fill="#1C1008"/>
+          <path d="M0,22 C240,46 460,8 720,28 C960,46 1200,8 1400,26 L1440,26 L1440,56 L0,56 Z" fill="#F8F3EC"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         FAQ
+    ════════════════════════════════════════════════════════════ -->
+    <section id="faq">
+      <div class="container" style="padding-top:80px; padding-bottom:88px;">
+
+        <!-- Header -->
+        <span class="sec-tag reveal">Preguntas frecuentes</span>
+        <h2 class="sec-title reveal reveal-d1" style="margin-bottom:44px;">
+          Todo lo que necesitás saber
+        </h2>
+
+        <!-- 2-col layout: accordion izq + mini catálogo der -->
+        <div class="faq-layout">
+
+          <!-- Izquierda: accordion -->
+          <div class="faq-list reveal reveal-d2">
+
+            <details class="faq-item">
+              <summary>
+                ¿La leña viene seca y lista para usar desde el momento de la entrega?
+                <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </summary>
+              <p class="faq-answer">
+                Sí. Toda nuestra leña pasa por un proceso de <strong>secado y curado</strong> antes de salir del depósito. Llega lista para encender desde la primera noche, sin humedad ni humo excesivo. La leña verde no rinde y humea — por eso garantizamos que la nuestra siempre llega en condiciones.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                ¿Hacen entrega a domicilio? ¿Cuánto tarda?
+                <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </summary>
+              <p class="faq-answer">
+                Sí, entregamos en <strong>Montevideo y toda el área metropolitana</strong>: Ciudad de la Costa, Canelones, Las Piedras, Pando, Atlántida, San José y más. El tiempo de entrega varía según la zona y disponibilidad, pero en general coordinamos en <strong>24 a 48 horas</strong> desde que confirmás el pedido por WhatsApp.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                ¿Cómo hago para pedir?
+                <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </summary>
+              <p class="faq-answer">
+                Armá tu pedido en esta página usando los <strong>selectores de cantidad</strong> de cada producto y tocá <strong>"Confirmar por WhatsApp"</strong>. Te genera un mensaje ya pre-cargado con tu pedido completo — solo lo enviás y un asesor te confirma disponibilidad y coordina la entrega. Sin formularios, sin complicaciones.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                ¿Cuáles son los métodos de pago?
+                <svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </summary>
+              <p class="faq-answer">
+                Aceptamos <strong>efectivo, transferencia bancaria</strong> y pagos a través de <strong>RedPagos</strong>. Si tenés alguna consulta sobre el pago al coordinar tu entrega, podés preguntarle directamente al asesor por WhatsApp.
+              </p>
+            </details>
+
+          </div>
+
+          <!-- Derecha: mini catálogo sticky -->
+          <div class="faq-catalog reveal reveal-d3">
+
+            <div class="faq-catalog-head">
+              <h3 class="faq-catalog-title">¿Listo para pedir?</h3>
+              <p class="faq-catalog-sub">Agregá productos directo al carrito.</p>
+            </div>
+
+            <div class="faq-prod-list">
+
+              <div class="faq-prod-row" data-qty-card="astilla-roja">
+                <div class="faq-prod-thumb prod-bg-1"></div>
+                <div class="faq-prod-meta">
+                  <span class="faq-prod-name">Astilla Roja Premium</span>
+                  <span class="faq-prod-price">$8.600 / ton</span>
+                </div>
+                <div class="qty-ctrl qty-ctrl--sm">
+                  <button class="qty-btn minus inactive" onclick="changeQty('astilla-roja',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" data-qty="astilla-roja">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('astilla-roja',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+
+              <div class="faq-prod-row" data-qty-card="astilla-calef">
+                <div class="faq-prod-thumb prod-bg-2"></div>
+                <div class="faq-prod-meta">
+                  <span class="faq-prod-name">Astilla Calefactor</span>
+                  <span class="faq-prod-price">$9.100 / ton</span>
+                </div>
+                <div class="qty-ctrl qty-ctrl--sm">
+                  <button class="qty-btn minus inactive" onclick="changeQty('astilla-calef',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" data-qty="astilla-calef">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('astilla-calef',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+
+              <div class="faq-prod-row" data-qty-card="rolo">
+                <div class="faq-prod-thumb prod-bg-3"></div>
+                <div class="faq-prod-meta">
+                  <span class="faq-prod-name">Rolo Premium</span>
+                  <span class="faq-prod-price">$8.600 / ton</span>
+                </div>
+                <div class="qty-ctrl qty-ctrl--sm">
+                  <button class="qty-btn minus inactive" onclick="changeQty('rolo',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" data-qty="rolo">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('rolo',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+
+              <div class="faq-prod-row" data-qty-card="acacia">
+                <div class="faq-prod-thumb prod-bg-4"></div>
+                <div class="faq-prod-meta">
+                  <span class="faq-prod-name">Acacia Negra</span>
+                  <span class="faq-prod-price">$7.100 / ton</span>
+                </div>
+                <div class="qty-ctrl qty-ctrl--sm">
+                  <button class="qty-btn minus inactive" onclick="changeQty('acacia',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" data-qty="acacia">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('acacia',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+
+              <div class="faq-prod-row" data-qty-card="asado">
+                <div class="faq-prod-thumb prod-bg-5"></div>
+                <div class="faq-prod-meta">
+                  <span class="faq-prod-name">Leña para Asado</span>
+                  <span class="faq-prod-price">Consultar precio</span>
+                </div>
+                <div class="qty-ctrl qty-ctrl--sm">
+                  <button class="qty-btn minus inactive" onclick="changeQty('asado',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" data-qty="asado">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('asado',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+
+              <div class="faq-prod-row" data-qty-card="pinias">
+                <div class="faq-prod-thumb prod-bg-6"></div>
+                <div class="faq-prod-meta">
+                  <span class="faq-prod-name">Piñas &amp; Iniciadores</span>
+                  <span class="faq-prod-price">Consultar precio</span>
+                </div>
+                <div class="qty-ctrl qty-ctrl--sm">
+                  <button class="qty-btn minus inactive" onclick="changeQty('pinias',-1)" aria-label="Reducir">−</button>
+                  <span class="qty-num" data-qty="pinias">0</span>
+                  <button class="qty-btn plus" onclick="changeQty('pinias',1)" aria-label="Agregar">+</button>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="faq-catalog-foot">
+              <div class="faq-catalog-total">
+                <span class="faq-total-label">Total estimado</span>
+                <span class="faq-total-amount" id="faq-total-amount">$0</span>
+              </div>
+              <button class="faq-open-cart" onclick="confirmOrder()" id="faq-confirm-btn" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+                </svg>
+                Confirmar pedido por WhatsApp
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAPA
+    ════════════════════════════════════════════════════════════ -->
+    <section id="ubicacion" aria-label="Ubicación Leñera Carrasco">
+      <iframe
+        src="https://maps.google.com/maps?q=-34.8206119,-56.0096938&hl=es&z=16&output=embed"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación Leñera Carrasco">
+      </iframe>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════════════════════ -->
+    <footer id="site-footer" role="contentinfo">
+      <div class="container">
+
+        <div class="footer-grid">
+
+          <!-- Col 1: Marca -->
+          <div>
+            <a href="#" class="footer-logo-link">
+              <svg width="18" height="22" viewBox="0 0 26 30" fill="none" aria-hidden="true">
+                <path d="M13 1C13 1 7 9 7 16C7 19.866 9.686 23 13 23C16.314 23 19 19.866 19 16C19 12.5 16.8 10 15 8.5C15 8.5 15.8 12.5 13 15C13 15 11.2 9.5 13 1Z" fill="#D4771A"/>
+                <path d="M13 30C13 30 9 25.5 9 21.5C9 19.567 10.791 18 13 18C15.209 18 17 19.567 17 21.5C17 25.5 13 30 13 30Z" fill="#E8891C"/>
+              </svg>
+              Leñera Carrasco
+            </a>
+            <p class="footer-tagline">Leña seca de calidad, entregada a domicilio en Montevideo y el área metropolitana. Más de 20 años calentando hogares uruguayos.</p>
+            <a href="https://wa.me/59898380570?text=Hola%20Le%C3%B1era%20Carrasco%2C%20quiero%20hacer%20un%20pedido." target="_blank" rel="noopener noreferrer" class="footer-wa-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Escribinos al WhatsApp
+            </a>
+          </div>
+
+          <!-- Col 2: Navegación -->
+          <div>
+            <span class="footer-col-label">Navegación</span>
+            <ul class="footer-links">
+              <li><a href="#productos">Productos</a></li>
+              <li><a href="#nosotros">Nosotros</a></li>
+              <li><a href="#zonas">Zonas de entrega</a></li>
+              <li><a href="#galeria">Galería</a></li>
+              <li><a href="#testimonios">Testimonios</a></li>
+              <li><a href="#servicios">Podas y talas</a></li>
+              <li><a href="#faq">Preguntas frecuentes</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Productos -->
+          <div>
+            <span class="footer-col-label">Productos</span>
+            <ul class="footer-links">
+              <li><a href="#productos">Astilla Roja Premium</a></li>
+              <li><a href="#productos">Astilla Calefactor</a></li>
+              <li><a href="#productos">Rolo Premium</a></li>
+              <li><a href="#productos">Acacia Negra</a></li>
+              <li><a href="#productos">Leña para Asado</a></li>
+              <li><a href="#productos">Piñas &amp; Iniciadores</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Contacto -->
+          <div>
+            <span class="footer-col-label">Contacto</span>
+            <div class="footer-contact-list">
+
+              <div class="footer-contact-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Ruta 102 km 22.200<br>Entre Los Eucaliptos y Del Parque<br>Canelones, Uruguay</span>
+              </div>
+
+              <div class="footer-contact-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span><a href="https://wa.me/59898380570">+598 98 380 570</a></span>
+              </div>
+
+              <div class="footer-contact-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <span><a href="mailto:leneracarrasco@gmail.com">leneracarrasco@gmail.com</a></span>
+              </div>
+
+              <div class="footer-contact-row">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/>
+                </svg>
+                <span>Lun – Sáb: 8:00 – 16:00 hs</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+          <span class="footer-copy">© 2025 Leñera Carrasco. Todos los derechos reservados.</span>
+          <a href="#" class="footer-back-top" aria-label="Volver al inicio">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="18,15 12,9 6,15"/>
+            </svg>
+            Volver al inicio
+          </a>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       CART PANEL
+  ════════════════════════════════════════════════════════════ -->
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCartPanel()"></div>
+
+  <aside id="cart-panel" aria-label="Tu pedido" role="complementary">
+    <div class="cp-header">
+      <span class="cp-title">Tu pedido</span>
+      <button class="cp-close" onclick="closeCartPanel()" aria-label="Cerrar carrito">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="cp-items">
+      <div class="cp-empty">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.4">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <p>Tu carrito está vacío</p>
+        <span>Agregá productos para hacer tu pedido</span>
+      </div>
+    </div>
+
+    <div class="cp-footer">
+      <div class="cp-total-row">
+        <span class="cp-total-label">Total estimado</span>
+        <span id="cp-total-amount">$0</span>
+      </div>
+      <p class="cp-note">El precio final puede variar según disponibilidad y zona de entrega.</p>
+      <button id="cp-confirm-btn" class="btn-confirm-wa" onclick="confirmOrder()" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Confirmar por WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast notification -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       FLOATING BUTTONS
+  ════════════════════════════════════════════════════════════ -->
+
+  <!-- Carrito flotante (aparece solo cuando hay items) -->
+  <button id="float-cart" onclick="toggleCartPanel()" aria-label="Ver carrito">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+    <span class="fc-badge" id="float-badge">0</span>
+  </button>
+
+  <!-- WhatsApp flotante (siempre visible) -->
+  <a id="float-wa" href="https://wa.me/59898380570" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════════════════════ -->
+  <script>
+    // ─── Product catalogue ────────────────────────────────────────────────
+    const PRODUCTS = {
+      'astilla-roja':  { name: 'Astilla Roja Premium', price: 8600, unit: 'ton' },
+      'astilla-calef': { name: 'Astilla Calefactor',   price: 9100, unit: 'ton' },
+      'rolo':          { name: 'Rolo Premium',          price: 8600, unit: 'ton' },
+      'acacia':        { name: 'Acacia Negra',          price: 7100, unit: 'ton' },
+      'asado':         { name: 'Leña para Asado',       price: 0,    unit: null  },
+      'pinias':        { name: 'Piñas & Iniciadores',   price: 0,    unit: null  },
+    };
+
+    // ─── Cart state ───────────────────────────────────────────────────────
+    const cart = {};
+
+    function cartCount() {
+      return Object.values(cart).reduce((s, i) => s + i.qty, 0);
+    }
+    function cartTotal() {
+      return Object.values(cart).reduce((s, i) => s + i.price * i.qty, 0);
+    }
+
+    // ─── Change product qty ───────────────────────────────────────────────
+    function changeQty(id, delta) {
+      const prod = PRODUCTS[id];
+      if (!prod) return;
+
+      if (!cart[id]) {
+        if (delta <= 0) return;
+        cart[id] = { id, ...prod, qty: 0 };
+      }
+      cart[id].qty = Math.max(0, cart[id].qty + delta);
+      if (cart[id].qty === 0) delete cart[id];
+
+      // Update qty display on main card
+      const qtyEl = document.getElementById('qty-' + id);
+      if (qtyEl) qtyEl.textContent = cart[id]?.qty ?? 0;
+
+      // Update any secondary qty displays (FAQ mini catalog)
+      const currentQty = cart[id]?.qty ?? 0;
+      document.querySelectorAll('[data-qty="' + id + '"]').forEach(el => {
+        el.textContent = currentQty;
+      });
+
+      // Card state class + minus button (main product card)
+      const card = document.getElementById('card-' + id);
+      if (card) {
+        card.classList.toggle('has-items', currentQty > 0);
+        const minus = card.querySelector('.qty-btn.minus');
+        if (minus) minus.classList.toggle('inactive', currentQty === 0);
+      }
+
+      // Minus button state in FAQ mini catalog
+      const faqRow = document.querySelector('[data-qty-card="' + id + '"]');
+      if (faqRow) {
+        const faqMinus = faqRow.querySelector('.qty-btn.minus');
+        if (faqMinus) faqMinus.classList.toggle('inactive', currentQty === 0);
+      }
+
+      if (delta > 0) showToast(prod.name + ' agregado ✓');
+      refreshCartBadges();
+    }
+
+    // ─── Refresh badges / floating button ────────────────────────────────
+    function refreshCartBadges() {
+      const count = cartCount();
+      const navBadge   = document.getElementById('nav-badge');
+      const floatCart  = document.getElementById('float-cart');
+      const floatBadge = document.getElementById('float-badge');
+
+      if (navBadge) { navBadge.textContent = count; navBadge.classList.toggle('show', count > 0); }
+      if (floatCart)  floatCart.classList.toggle('show', count > 0);
+      if (floatBadge) floatBadge.textContent = count;
+
+      // Spring pulse on badges
+      document.querySelectorAll('.cart-badge.show').forEach(b => {
+        b.classList.remove('pulse'); void b.offsetWidth; b.classList.add('pulse');
+      });
+
+      // Update FAQ mini catalog total + confirm button
+      const faqTotalEl  = document.getElementById('faq-total-amount');
+      const faqConfirm  = document.getElementById('faq-confirm-btn');
+      if (faqTotalEl) {
+        const items = Object.values(cart);
+        const total = cartTotal();
+        const hasConsultar = items.some(i => i.price === 0);
+        if (!items.length) {
+          faqTotalEl.textContent = '$0';
+        } else if (total > 0 && hasConsultar) {
+          faqTotalEl.textContent = '$' + total.toLocaleString('es-UY') + '+';
+        } else if (total > 0) {
+          faqTotalEl.textContent = '$' + total.toLocaleString('es-UY');
+        } else {
+          faqTotalEl.textContent = 'A consultar';
+        }
+      }
+      if (faqConfirm) {
+        if (count > 0) faqConfirm.removeAttribute('disabled');
+        else faqConfirm.setAttribute('disabled', '');
+      }
+
+      renderCartPanel();
+    }
+
+    // ─── Render cart panel ────────────────────────────────────────────────
+    function renderCartPanel() {
+      const itemsEl    = document.getElementById('cp-items');
+      const totalEl    = document.getElementById('cp-total-amount');
+      const confirmBtn = document.getElementById('cp-confirm-btn');
+      if (!itemsEl) return;
+
+      const items = Object.values(cart);
+
+      if (!items.length) {
+        itemsEl.innerHTML = `
+          <div class="cp-empty">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.4">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            <p>Tu carrito está vacío</p>
+            <span>Agregá productos para hacer tu pedido</span>
+          </div>`;
+        if (totalEl) totalEl.textContent = '$0';
+        if (confirmBtn) confirmBtn.setAttribute('disabled', '');
+        return;
+      }
+
+      itemsEl.innerHTML = items.map(item => `
+        <div class="cp-item">
+          <div class="cp-item-info">
+            <div class="cp-item-name">${item.name}</div>
+            <div class="cp-item-unit">${item.price > 0 ? '$' + item.price.toLocaleString('es-UY') + '/' + item.unit : 'Consultar precio'}</div>
+          </div>
+          <div class="cp-qty-ctrl">
+            <button class="cp-qty-btn" onclick="changeQty('${item.id}',-1)">−</button>
+            <span class="cp-qty-num">${item.qty}</span>
+            <button class="cp-qty-btn" onclick="changeQty('${item.id}',1)">+</button>
+          </div>
+          <div class="cp-item-subtotal">${item.price > 0 ? '$' + (item.price * item.qty).toLocaleString('es-UY') : '—'}</div>
+        </div>`
+      ).join('');
+
+      const total = cartTotal();
+      const hasConsultar = items.some(i => i.price === 0);
+      if (totalEl) {
+        if (total > 0 && hasConsultar) {
+          totalEl.innerHTML = '$' + total.toLocaleString('es-UY') + '<br><small>+ ítems a consultar</small>';
+        } else if (total > 0) {
+          totalEl.textContent = '$' + total.toLocaleString('es-UY');
+        } else {
+          totalEl.textContent = 'A consultar';
+        }
+      }
+      if (confirmBtn) confirmBtn.removeAttribute('disabled');
+    }
+
+    // ─── Cart panel open / close ──────────────────────────────────────────
+    function openCartPanel() {
+      document.getElementById('cart-panel').classList.add('open');
+      document.getElementById('cart-overlay').classList.add('show');
+      document.body.style.overflow = 'hidden';
+      renderCartPanel();
+    }
+    function closeCartPanel() {
+      document.getElementById('cart-panel').classList.remove('open');
+      document.getElementById('cart-overlay').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+    function toggleCartPanel() {
+      document.getElementById('cart-panel').classList.contains('open')
+        ? closeCartPanel() : openCartPanel();
+    }
+
+    // ─── Confirm order → WhatsApp ─────────────────────────────────────────
+    function confirmOrder() {
+      const items = Object.values(cart);
+      if (!items.length) return;
+
+      const lines = items.map(i =>
+        i.price > 0
+          ? `• ${i.name} × ${i.qty} — $${(i.price * i.qty).toLocaleString('es-UY')}`
+          : `• ${i.name} × ${i.qty} — consultar precio`
+      );
+      const total = cartTotal();
+      const hasConsultar = items.some(i => i.price === 0);
+      const totalLine = total > 0
+        ? (hasConsultar
+            ? `Total parcial: $${total.toLocaleString('es-UY')} + ítems a confirmar`
+            : `Total estimado: $${total.toLocaleString('es-UY')}`)
+        : 'Precios a confirmar por WhatsApp';
+
+      const msg = `Hola Leñera Carrasco! 🪵\n\nMi pedido:\n${lines.join('\n')}\n\n${totalLine}\n\n¿Pueden confirmarme disponibilidad y coordinar la entrega?\n\n¡Gracias!`;
+      window.open('https://wa.me/59898380570?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    // ─── Toast ────────────────────────────────────────────────────────────
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      if (!t) return;
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+
+    // ─── Navbar scroll shadow ────────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 20);
+      lastScroll = y;
+    }, { passive: true });
+
+
+    // ─── Mobile menu ─────────────────────────────────────────────────────
+    let mobileMenuOpen = false;
+
+    function toggleMobileMenu() {
+      mobileMenuOpen = !mobileMenuOpen;
+      const menu = document.getElementById('mobile-menu');
+      const btn  = document.getElementById('hamburger-btn');
+      menu.classList.toggle('open', mobileMenuOpen);
+      btn.setAttribute('aria-expanded', mobileMenuOpen);
+      document.getElementById('icon-ham').style.display = mobileMenuOpen ? 'none'  : '';
+      document.getElementById('icon-x'  ).style.display = mobileMenuOpen ? ''      : 'none';
+    }
+
+    function closeMobileMenu() {
+      mobileMenuOpen = false;
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.getElementById('hamburger-btn').setAttribute('aria-expanded', 'false');
+      document.getElementById('icon-ham').style.display = '';
+      document.getElementById('icon-x'  ).style.display = 'none';
+    }
+
+    // Close mobile menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) closeMobileMenu();
+    });
+
+
+    // ─── Intersection Observer — Scroll Reveals ──────────────────────────
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+    function observeRevealElements() {
+      document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', observeRevealElements);
+
+
+    // ─── Badge pulse animation ────────────────────────────────────────────
+    const badgePulseStyle = document.createElement('style');
+    badgePulseStyle.textContent = `
+      @keyframes badge-pulse {
+        0%   { transform: scale(1); }
+        40%  { transform: scale(1.35); }
+        100% { transform: scale(1); }
+      }
+      .cart-badge.pulse, .fc-badge.pulse {
+        animation: badge-pulse 0.38s cubic-bezier(0.34,1.56,0.64,1);
+      }
+    `;
+    document.head.appendChild(badgePulseStyle);
+  </script>
+
+</body>
+</html>
