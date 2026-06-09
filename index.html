@@ -1453,8 +1453,9 @@
     ════════════════════════════════════════════════════════════ */
     #faq { background: var(--cream); }
 
+    .faq-left { display: flex; flex-direction: column; }
+
     .faq-list {
-      max-width: 780px;
       border-top: 1px solid rgba(212,119,26,0.14);
     }
 
@@ -2623,16 +2624,15 @@
     <section id="faq">
       <div class="container" style="padding-top:80px; padding-bottom:88px;">
 
-        <!-- Header -->
-        <span class="sec-tag reveal">Preguntas frecuentes</span>
-        <h2 class="sec-title reveal reveal-d1" style="margin-bottom:44px;">
-          Todo lo que necesitás saber
-        </h2>
-
-        <!-- 2-col layout: accordion izq + mini catálogo der -->
+        <!-- 2-col layout: (título + accordion) izq + mini catálogo der -->
         <div class="faq-layout">
 
-          <!-- Izquierda: accordion -->
+          <!-- Izquierda: título + accordion -->
+          <div class="faq-left">
+            <span class="sec-tag reveal">Preguntas frecuentes</span>
+            <h2 class="sec-title reveal reveal-d1" style="margin-bottom:32px;">
+              Todo lo que necesitás saber
+            </h2>
           <div class="faq-list reveal reveal-d2">
 
             <details class="faq-item">
@@ -2683,7 +2683,8 @@
               </p>
             </details>
 
-          </div>
+          </div><!-- /faq-list -->
+          </div><!-- /faq-left -->
 
           <!-- Derecha: mini catálogo sticky -->
           <div class="faq-catalog reveal reveal-d3">
